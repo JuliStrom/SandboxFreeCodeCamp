@@ -19,10 +19,23 @@ function getGrade(score) {
     } else if (score <= 59) {
     return "F";
 }
+};
+
+function getAverage(scores) {
+    let sum = 0;
+    let number = scores.length;
+    console.log(number);
+for (let i of scores) {
+    sum += i; 
+    console.log(sum);
 }
-console.log(getGrade(100));
-console.log(getGrade(96));
-console.log(getGrade(82));
-console.log(getGrade(73));
-console.log(getGrade(60));
-console.log(getGrade(20));
+return sum / number;
+};
+
+function studentMsg(totalScores, studentScore) {
+    if (studentScore > 60) {
+    return "Class average: " + getAverage(totalScores) + '. Your grade: ' + getGrade(studentScore) + ". You passed the course.";
+} else
+    return "Class average: " + getAverage(totalScores) + '. Your grade: ' + getGrade(studentScore) + ". You failed the course.";
+};
+    console.log(studentMsg([50, 50], 61));
